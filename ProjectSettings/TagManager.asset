@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PlayerSideGround
+  - EnemySideGround
+  - CharacterPreviews/EaglePreview
+  - CharacterPreviews/SoldierPreview
+  - CharacterPreviews/KnightPreview
+  - CharacterPreviews/OrcWolfRiderPreview
+  - CharacterPreviews/SkeletonArcherPreview
+  - CharacterPreviews/SkeletonWarriorPreview
+  - OriginalCharacter/Eagle
+  - OriginalCharacter/Knight
+  - OriginalCharacter/OrcWolfRider
+  - OriginalCharacter/SkeletonArcher
+  - OriginalCharacter/SkeletonWarrior
+  - OriginalCharacter/Soldier
   layers:
   - Default
   - TransparentFX
