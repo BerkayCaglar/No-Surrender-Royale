@@ -307,7 +307,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2e7b11d6712111440834cb098dd5415a, type: 2}
+  - {fileID: 2100000, guid: 29fde3dc91c8f55408a811b0d064231a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -436,8 +436,8 @@ GameObject:
   - component: {fileID: 6605030410877638614}
   - component: {fileID: 6605030410887198722}
   m_Layer: 0
-  m_Name: ToonSoldier_demo
-  m_TagString: Untagged
+  m_Name: SoldierPreview
+  m_TagString: CharacterPreviews/SoldierPreview
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
