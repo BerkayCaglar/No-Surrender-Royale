@@ -284,7 +284,7 @@ GameObject:
   - component: {fileID: 1341123532635615941}
   m_Layer: 0
   m_Name: SkeletonArcherPreview
-  m_TagString: CharacterPreviews/SkeletonArcherPreview
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

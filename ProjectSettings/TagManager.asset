@@ -18,6 +18,9 @@ TagManager:
   - OriginalCharacter/Soldier
   - PlayerSide
   - EnemySide
+  - MainTarget
+  - Enemy
+  - Friendly
   layers:
   - Default
   - TransparentFX
@@ -27,8 +30,8 @@ TagManager:
   - UI
   - PlayerSide
   - EnemySide
-  - 
-  - 
+  - Enemy
+  - Friendly
   - 
   - 
   - 

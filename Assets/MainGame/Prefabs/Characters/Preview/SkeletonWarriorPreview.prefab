@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 2128569266062429813}
   m_Layer: 0
   m_Name: SkeletonWarriorPreview
-  m_TagString: CharacterPreviews/SkeletonWarriorPreview
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

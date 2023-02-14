@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 6605030410887198722}
   m_Layer: 0
   m_Name: CptPricePreview
-  m_TagString: CharacterPreviews/SoldierPreview
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
