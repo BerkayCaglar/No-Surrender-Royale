@@ -1326,7 +1326,7 @@ GameObject:
   - component: {fileID: 3133471774985955967}
   m_Layer: 0
   m_Name: KnightPreview
-  m_TagString: CharacterPreviews/KnightPreview
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
