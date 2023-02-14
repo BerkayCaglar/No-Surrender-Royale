@@ -929,7 +929,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &496249760
 MonoBehaviour:
@@ -1366,6 +1366,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5147033093467493758, guid: 5522790c4bcf7a847996a023c05afadf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6605030410877638614, guid: 5522790c4bcf7a847996a023c05afadf,
         type: 3}
       propertyPath: m_RootOrder
@@ -1425,6 +1430,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CptPrice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151089690169366774, guid: 5522790c4bcf7a847996a023c05afadf,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].time
+      value: 0.8895501
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151089690169366774, guid: 5522790c4bcf7a847996a023c05afadf,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.9054052
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151089690169366774, guid: 5522790c4bcf7a847996a023c05afadf,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[1].value
+      value: 0.18919373
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5522790c4bcf7a847996a023c05afadf, type: 3}
