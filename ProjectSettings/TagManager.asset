@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerSideGround
-  - EnemySideGround
   - CharacterPreviews/EaglePreview
   - CharacterPreviews/SoldierPreview
   - CharacterPreviews/KnightPreview
@@ -18,15 +16,17 @@ TagManager:
   - OriginalCharacter/SkeletonArcher
   - OriginalCharacter/SkeletonWarrior
   - OriginalCharacter/Soldier
+  - PlayerSide
+  - EnemySide
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Towers
   - Water
   - UI
-  - 
-  - 
+  - PlayerSide
+  - EnemySide
   - 
   - 
   - 

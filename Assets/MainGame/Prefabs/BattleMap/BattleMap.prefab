@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2782bd09fb749e4f8c457cb9c8cc6cd, type: 2}
+  - {fileID: 2100000, guid: ec8cc910d2d8dbd4ea0b4cecdf397a8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,9 +143,9 @@ GameObject:
   - component: {fileID: 238184597151970680}
   - component: {fileID: 238184597151970681}
   - component: {fileID: 238184597151970686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSideGround
-  m_TagString: Untagged
+  m_TagString: PlayerSideGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -193,7 +193,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c3435b7cf3210044b3a24266d8aebf1, type: 2}
+  - {fileID: 2100000, guid: e3afd3f13bed53c448eaa979f23dbcb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 238184597445370750}
   m_Layer: 0
   m_Name: EnemySideGround
-  m_TagString: Untagged
+  m_TagString: EnemySideGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -357,7 +357,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9c3435b7cf3210044b3a24266d8aebf1, type: 2}
+  - {fileID: 2100000, guid: e3afd3f13bed53c448eaa979f23dbcb7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -617,7 +617,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e2782bd09fb749e4f8c457cb9c8cc6cd, type: 2}
+  - {fileID: 2100000, guid: ec8cc910d2d8dbd4ea0b4cecdf397a8b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -661,7 +661,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6262543441185557030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftPlayerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +694,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6262543441789502928}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightPlayerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 6262400615268767926}
   - component: {fileID: 6236645854380725092}
   - component: {fileID: 6245320512970984842}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftTowerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -812,7 +812,7 @@ GameObject:
   - component: {fileID: 6262400615872845632}
   - component: {fileID: 6236645854850522258}
   - component: {fileID: 6245320513440776828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightTowerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -895,7 +895,8 @@ GameObject:
   - component: {fileID: 6262421682942933612}
   - component: {fileID: 6236663557251602980}
   - component: {fileID: 6245095132753259118}
-  m_Layer: 0
+  - component: {fileID: 923334107350714422}
+  m_Layer: 3
   m_Name: MainPlayerTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,6 +969,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &923334107350714422
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268188377704402454}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.2209225, y: 4.64913, z: 3.9235973}
+  m_Center: {x: 0.03464973, y: 2.2653522, z: 0.03234589}
 --- !u!1 &6268320803694371868
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +993,8 @@ GameObject:
   - component: {fileID: 6262681301967585390}
   - component: {fileID: 6237443428895883324}
   - component: {fileID: 6244598718171180368}
-  m_Layer: 0
+  - component: {fileID: 4158998883956940525}
+  m_Layer: 3
   m_Name: LeftTowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1051,6 +1066,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4158998883956940525
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268320803694371868}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7387652, y: 4.2612677, z: 3.859507}
+  m_Center: {x: -0.44161803, y: 2.1306334, z: 0.00030076504}
 --- !u!1 &6268320804298386410
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,7 +1090,8 @@ GameObject:
   - component: {fileID: 6262681302571667352}
   - component: {fileID: 6237443429365616586}
   - component: {fileID: 6244598717701317286}
-  m_Layer: 0
+  - component: {fileID: 3116563661374856617}
+  m_Layer: 3
   m_Name: RightTowerBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1134,6 +1163,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3116563661374856617
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268320804298386410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.7387652, y: 4.2612677, z: 3.859507}
+  m_Center: {x: -0.44161803, y: 2.1306334, z: 0.00030076504}
 --- !u!1 &6268649907643102952
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1187,7 @@ GameObject:
   - component: {fileID: 6262731508105527628}
   - component: {fileID: 6237392371094037478}
   - component: {fileID: 6244657181896153734}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MainPlayerTowerGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
