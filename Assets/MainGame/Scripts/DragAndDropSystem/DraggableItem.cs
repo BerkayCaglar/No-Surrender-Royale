@@ -67,8 +67,6 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
 
         // Set alpha to 0.5 to show that we are dragging. Image is half transparent now.
         _image.color = new Color(1, 1, 1, 0.5f);
-
-
     }
 
     /// <summary>
@@ -87,7 +85,7 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         RaycastHit hit;
 
         // Raycast to check if we hit player side
-        if (Physics.Raycast(ray, out hit, 1000f, LayerMask.GetMask("Towers", "PlayerSide")))
+        if (Physics.Raycast(ray, out hit, 1000f, LayerMask.GetMask("PlayerTowers", "EnemyTowers", "PlayerSide")))
         {
             // If we hit player side, 
             if (hit.collider.CompareTag("PlayerSide"))
@@ -159,7 +157,6 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     /// <param name="eventData"> Event data </param>
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log(_cardIsOnPlayerSide);
         // If we drop the card to player side, instantiate original card and destroy preview card
         if (_cardIsOnPlayerSide)
         {

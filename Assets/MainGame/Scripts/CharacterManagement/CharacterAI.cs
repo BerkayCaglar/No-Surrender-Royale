@@ -6,59 +6,131 @@ using UnityEngine.AI;
 public class CharacterAI : MonoBehaviour
 {
     private Character _character;
-    private GameObject _currentTarget;
+    private GameObject _currentTarget, _mainTarget;
     private bool _isAttacking;
+    private float elapsed = 0.0f;
+    private bool _targetInRange;
     private void Start()
     {
         _character = GetComponent<Character>();
 
-        if (CompareTag("Enemy")) return;
+        FindMainTarget();
 
-        InvokeRepeating("FindTarget", 0f, 0.5f);
+        InvokeRepeating("FindMainTarget", 0f, 0.5f);
+
+        InvokeRepeating("FindCurrentTarget", 0f, 0.1f);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (CompareTag("Enemy")) return;
-
+        Attack();
         Move();
     }
 
     private void Move()
     {
-        if (_currentTarget == null)
+        if (_currentTarget == null && _character != null && _mainTarget != null)
         {
-            _character.NavMeshAgent.SetDestination(_character.MainTarget.transform.position);
-            //_character.CharacterAnimationController.Move();
+            _character.NavMeshAgent.SetDestination(_mainTarget.transform.position + _mainTarget.transform.forward);
+
+            elapsed += Time.deltaTime;
+            if (elapsed > 1.0f)
+            {
+                elapsed -= 1.0f;
+                NavMesh.CalculatePath(transform.position, _mainTarget.transform.position, NavMesh.AllAreas, _character.NavMeshAgent.path);
+            }
         }
         else
         {
-            if (_character.NavMeshAgent.hasPath)
+            if (!_targetInRange && !_isAttacking && _currentTarget != null)
             {
-                _character.NavMeshAgent.ResetPath();
+                if (_currentTarget.layer == 3 || _currentTarget.layer == 10)
+                {
+                    _character.NavMeshAgent.SetDestination(_currentTarget.transform.position + _currentTarget.transform.forward);
+                    return;
+                }
+                _character.NavMeshAgent.SetDestination(_currentTarget.transform.position);
             }
-            transform.LookAt(_currentTarget.transform);
         }
     }
 
-    private void FindTarget()
+    private void FindCurrentTarget()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy"));
+        Collider[] colliders;
+
+        if (CompareTag("Enemy"))
+        {
+            colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly", "PlayerTowers"));
+        }
+        else
+        {
+            colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy", "EnemyTowers"));
+        }
+
         foreach (Collider collider in colliders)
         {
-            _currentTarget = collider.gameObject;
-            Attack();
+            GameObject _nearestTarget = null;
+            float _nearestDistance = float.MaxValue;
+
+            float distance = Vector3.Distance(transform.position, collider.transform.position);
+
+            if (distance < _nearestDistance)
+            {
+                _nearestDistance = distance;
+                _nearestTarget = collider.gameObject;
+            }
+            _currentTarget = _nearestTarget;
 
             return;
         }
+
         _currentTarget = null;
     }
 
+    private void FindMainTarget()
+    {
+        GameObject _nearestTower = null;
+        float _nearestDistance = float.MaxValue;
+
+        if (CompareTag("Enemy"))
+        {
+            foreach (GameObject tower in TowerManager.Instance.PlayerTowers)
+            {
+                float distance = Vector3.Distance(transform.position, tower.transform.position);
+                if (distance < _nearestDistance)
+                {
+                    _nearestDistance = distance;
+                    _nearestTower = tower;
+                }
+            }
+            _mainTarget = _nearestTower;
+        }
+        else
+        {
+            foreach (GameObject tower in TowerManager.Instance.EnemyTowers)
+            {
+                float distance = Vector3.Distance(transform.position, tower.transform.position);
+                if (distance < _nearestDistance)
+                {
+                    _nearestDistance = distance;
+                    _nearestTower = tower;
+                }
+            }
+            _mainTarget = _nearestTower;
+        }
+    }
     private void Attack()
     {
-        if (_currentTarget != null && !_isAttacking)
+        if (_currentTarget == null) return;
+
+        if (Vector3.Distance(transform.position, _currentTarget.transform.position) <= _character.AttackRange && !_isAttacking)
         {
+            _targetInRange = true;
             StartCoroutine(AttackCoroutine());
+        }
+        else
+        {
+            _targetInRange = false;
         }
     }
 
@@ -66,18 +138,32 @@ public class CharacterAI : MonoBehaviour
     {
         _isAttacking = true;
         _character.CharacterAnimationController.Attack();
+
+        _character.NavMeshAgent.ResetPath();
+        transform.LookAt(_currentTarget.transform);
+
         yield return new WaitForSeconds(_character.AttackSpeed);
+
+        _isAttacking = false;
 
         if (_currentTarget == null) yield break;
 
+        if (_currentTarget.layer == 3 || _currentTarget.layer == 10)
+        {
+            Debug.Log(_currentTarget.name);
+            _currentTarget.GetComponent<Tower>().Health -= _character.AttackDamage;
+            yield break;
+        }
+
         _currentTarget.GetComponent<Character>().Health -= _character.AttackDamage;
-        _isAttacking = false;
     }
 
     private void OnDrawGizmosSelected()
     {
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, GetComponent<Character>().DetectRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, GetComponent<Character>().AttackRange);
     }
 }
