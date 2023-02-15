@@ -4,35 +4,34 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - CharacterPreviews/EaglePreview
-  - CharacterPreviews/SoldierPreview
-  - CharacterPreviews/KnightPreview
-  - CharacterPreviews/OrcWolfRiderPreview
-  - CharacterPreviews/SkeletonArcherPreview
-  - CharacterPreviews/SkeletonWarriorPreview
-  - OriginalCharacter/Eagle
-  - OriginalCharacter/Knight
-  - OriginalCharacter/OrcWolfRider
-  - OriginalCharacter/SkeletonArcher
-  - OriginalCharacter/SkeletonWarrior
-  - OriginalCharacter/Soldier
   - PlayerSide
   - EnemySide
   - MainTarget
   - Enemy
   - Friendly
+  - PlayerSideGround
+  - EnemySideGround
+  - EnemyMainTarget
+  - PlayerMainTarget
+  - PlayerMainTower
+  - PlayerLeftTower
+  - PlayerRightTower
+  - EnemyMainTower
+  - EnemyRightTower
+  - EnemyLeftTower
+  - HealthBar
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Towers
+  - PlayerTowers
   - Water
   - UI
   - PlayerSide
   - EnemySide
   - Enemy
   - Friendly
-  - 
+  - EnemyTowers
   - 
   - 
   - 

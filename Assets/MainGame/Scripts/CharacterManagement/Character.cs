@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController))]
+[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController)), RequireComponent(typeof(CharacterUIManager))]
 public class Character : MonoBehaviour
 {
     // This is to store the character AI, character animation controller and navmesh agent component
@@ -19,9 +19,6 @@ public class Character : MonoBehaviour
     [SerializeField] private float _attackDamage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _detectRange;
-
-    // This is to store the character's main target
-    private GameObject _mainTarget;
 
     // Getter for _health, _maxHealth, _attackRange, _attackDamage and _detectRange property
     public float Health
@@ -48,12 +45,6 @@ public class Character : MonoBehaviour
     public float AttackSpeed
     {
         get => _attackSpeed;
-    }
-
-    // Getter for _mainTarget property
-    public GameObject MainTarget
-    {
-        get => _mainTarget;
     }
 
     // Getter for _characterAI, _characterAnimationController and _navMeshAgent property
@@ -88,9 +79,6 @@ public class Character : MonoBehaviour
         _characterAnimationController = GetComponent<CharacterAnimationController>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
-
-        // Set the character's main target
-        _mainTarget = GameObject.FindGameObjectWithTag("MainTarget");
 
         // Set the character's health to max health
         Health = _maxHealth;
