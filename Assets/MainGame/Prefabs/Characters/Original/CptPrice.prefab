@@ -703,6 +703,7 @@ MonoBehaviour:
   _attackDamage: 40
   _attackSpeed: 0.5
   _detectRange: 7
+  characterType: 1
 --- !u!54 &1977545797604684566
 Rigidbody:
   m_ObjectHideFlags: 0

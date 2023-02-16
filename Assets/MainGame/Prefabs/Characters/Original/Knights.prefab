@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5927321142648293202}
   m_Layer: 0
   m_Name: Knights
-  m_TagString: Untagged
+  m_TagString: Knights
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +44,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RightKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133471774978864691, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3133471774978897911, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
@@ -100,6 +105,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6433963981335723276, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433963981335723276, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c8052b9a1e957443a123c13e53055ef, type: 3}
 --- !u!4 &3933760037972049648 stripped
@@ -119,6 +134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftKnight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3133471774978864691, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3133471774978897911, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
@@ -173,6 +193,16 @@ PrefabInstance:
     - target: {fileID: 3133471774978897911, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433963981335723276, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6433963981335723276, guid: 3c8052b9a1e957443a123c13e53055ef,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

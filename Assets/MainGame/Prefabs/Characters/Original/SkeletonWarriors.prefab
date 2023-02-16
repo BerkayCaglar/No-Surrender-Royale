@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4711878465470244925}
   m_Layer: 0
   m_Name: SkeletonWarriors
-  m_TagString: Untagged
+  m_TagString: SkeletonWarriors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightSkeletonWarrior
       objectReference: {fileID: 0}
+    - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9285a0fdfe2e7f479f3ec16695ea3b1, type: 3}
 --- !u!4 &6695100057395397628 stripped
@@ -174,6 +189,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LeftSkeletonWarrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9285a0fdfe2e7f479f3ec16695ea3b1, type: 3}

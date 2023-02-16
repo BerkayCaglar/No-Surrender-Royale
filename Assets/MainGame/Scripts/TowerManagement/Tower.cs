@@ -24,8 +24,9 @@ public class Tower : MonoBehaviour
     private void Start()
     {
         Health = MaxHealth;
+        InvokeRepeating("CheckTowerHealthAndDecide", 0f, 0.5f);
     }
-    private void Update()
+    private void CheckTowerHealthAndDecide()
     {
         if (Health <= 0f)
         {
@@ -37,7 +38,14 @@ public class Tower : MonoBehaviour
             {
                 TowerManager.Instance.PlayerTowers.Remove(gameObject);
             }
-
+            if (CompareTag("EnemyMainTower"))
+            {
+                UIManager._Instance.YouWin();
+            }
+            else if (CompareTag("PlayerMainTower"))
+            {
+                UIManager._Instance.YouLose();
+            }
             Destroy(gameObject);
         }
     }

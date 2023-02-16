@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager _Instance { get; private set; }
 
-    public Characters _scriptableCharacters;
+    public enum GameState { MainMenu, InGame, Pause, GameOver };
+    public GameState gameState = GameState.MainMenu;
 
     private void Awake()
     {
@@ -19,16 +20,4 @@ public class GameManager : MonoBehaviour
             _Instance = this;
         }
     }
-    /*
-    private (GameObject, GameObject) ReturnCharacterAndItsPreview()
-    {
-        foreach (GameObject character in _scriptableCharacters._characters)
-        {
-            if (character.CompareTag())
-            {
-                return (character, character.transform.GetChild(0).gameObject);
-            }
-        }
-    }
-    */
 }

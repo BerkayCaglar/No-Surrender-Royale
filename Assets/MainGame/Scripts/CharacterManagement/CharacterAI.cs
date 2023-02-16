@@ -10,6 +10,8 @@ public class CharacterAI : MonoBehaviour
     private bool _isAttacking;
     private float elapsed = 0.0f;
     private bool _targetInRange;
+    private Collider[] _colliders = new Collider[0];
+
     private void Start()
     {
         _character = GetComponent<Character>();
@@ -44,7 +46,8 @@ public class CharacterAI : MonoBehaviour
         {
             if (!_targetInRange && !_isAttacking && _currentTarget != null)
             {
-                if (_currentTarget.layer == 3 || _currentTarget.layer == 10)
+                // If the target is a tower, move to the tower's position + the tower's forward direction
+                if (_currentTarget.layer == _character.EnemyTowerLayer || _currentTarget.layer == _character.PlayerTowerLayer)
                 {
                     _character.NavMeshAgent.SetDestination(_currentTarget.transform.position + _currentTarget.transform.forward);
                     return;
@@ -56,19 +59,27 @@ public class CharacterAI : MonoBehaviour
 
     private void FindCurrentTarget()
     {
-        Collider[] colliders;
+        // If the current target is not null, return. This is to prevent the character from finding a new target while attacking
+        if (_currentTarget != null) return;
 
         if (CompareTag("Enemy"))
         {
-            colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly", "PlayerTowers"));
+            _colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly", "PlayerTowers"));
         }
         else
         {
-            colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy", "EnemyTowers"));
+            _colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy", "EnemyTowers"));
         }
 
-        foreach (Collider collider in colliders)
+        foreach (Collider collider in _colliders)
         {
+            // If the collider is not a tower
+            if (collider.gameObject.layer != _character.EnemyTowerLayer && collider.gameObject.layer != _character.PlayerTowerLayer)
+            {
+                // If the collider is an air unit and the character is a melee unit, continue
+                if (_character.characterType == Character.CharacterType.Melee && collider.GetComponent<Character>().characterType == Character.CharacterType.AirUnit) continue;
+            }
+
             GameObject _nearestTarget = null;
             float _nearestDistance = float.MaxValue;
 
@@ -126,6 +137,7 @@ public class CharacterAI : MonoBehaviour
         if (Vector3.Distance(transform.position, _currentTarget.transform.position) <= _character.AttackRange && !_isAttacking)
         {
             _targetInRange = true;
+            _character.NavMeshAgent.ResetPath();
             StartCoroutine(AttackCoroutine());
         }
         else
@@ -148,9 +160,8 @@ public class CharacterAI : MonoBehaviour
 
         if (_currentTarget == null) yield break;
 
-        if (_currentTarget.layer == 3 || _currentTarget.layer == 10)
+        if (_currentTarget.layer == _character.EnemyTowerLayer || _currentTarget.layer == _character.PlayerTowerLayer)
         {
-            Debug.Log(_currentTarget.name);
             _currentTarget.GetComponent<Tower>().Health -= _character.AttackDamage;
             yield break;
         }

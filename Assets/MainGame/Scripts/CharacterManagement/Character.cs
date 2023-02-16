@@ -20,6 +20,23 @@ public class Character : MonoBehaviour
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _detectRange;
 
+    private int _enemyTowerLayer = 3;
+    private int _playerTowerLayer = 10;
+
+    // This is to store the character's type
+    public enum CharacterType { Melee, Ranged, AirUnit };
+    public CharacterType characterType;
+
+    // Getter for _enemyTowerLayer and _playerTowerLayer property
+    public int EnemyTowerLayer
+    {
+        get => _enemyTowerLayer;
+    }
+    public int PlayerTowerLayer
+    {
+        get => _playerTowerLayer;
+    }
+
     // Getter for _health, _maxHealth, _attackRange, _attackDamage and _detectRange property
     public float Health
     {
@@ -46,7 +63,6 @@ public class Character : MonoBehaviour
     {
         get => _attackSpeed;
     }
-
     // Getter for _characterAI, _characterAnimationController and _navMeshAgent property
     public CharacterAI CharacterAI
     {
