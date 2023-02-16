@@ -632,7 +632,8 @@ MonoBehaviour:
   _attackRange: 5
   _attackDamage: 30
   _attackSpeed: 1.5
-  _detectRange: 8
+  _detectRange: 6
+  characterType: 2
 --- !u!114 &6946182182478230509
 MonoBehaviour:
   m_ObjectHideFlags: 0
