@@ -13,6 +13,10 @@ public class Card : MonoBehaviour
     // This is to store the y axis offset of the card. We need this to set the position of the card when we instantiate the card.
     private Vector3 _yAxisOffset;
 
+    // This is to store the cost of the card. We need this to check if the player has enough mana to play the card.
+    [SerializeField] private float _cardCost;
+
+    // Start is called before the first frame update
     private void Start()
     {
         // Set y axis offset to original card prefab's y position.
@@ -43,5 +47,14 @@ public class Card : MonoBehaviour
     public Vector3 GetYAxisOffset()
     {
         return _yAxisOffset;
+    }
+
+    /// <summary>
+    /// Get card cost
+    /// </summary>
+    /// <returns> Card cost </returns>
+    public float GetCardCost()
+    {
+        return _cardCost;
     }
 }

@@ -350,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 150
   _attackRange: 6
-  _attackDamage: 40
+  _attackDamage: 35
   _attackSpeed: 1
   _detectRange: 7
   characterType: 1

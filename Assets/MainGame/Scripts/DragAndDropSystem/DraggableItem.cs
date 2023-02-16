@@ -19,9 +19,6 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     // This is the card component of the gameobject. We need this to get the preview card and original card prefab
     private Card _card;
 
-    // This is to check if we are dragging the card
-    private bool _isDragging;
-
     // This is to check if the card is on the player side
     private bool _cardIsOnPlayerSide;
 
@@ -50,8 +47,6 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     /// <param name="eventData"> Event data </param>
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Set dragging to true
-        _isDragging = true;
 
         // Set _parentAfterDrag to current parent
         _parentAfterDrag = transform.parent;
@@ -135,8 +130,6 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     /// <param name="eventData"> Event data </param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Set dragging to false
-        _isDragging = false;
 
         // If after drag, gameobject is not in player side, set parent to _parentAfterDrag. This is to prevent item from being lost. Item will be in its original parent.
         transform.SetParent(_parentAfterDrag);
@@ -160,14 +153,17 @@ public class DraggableItem : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         // If we drop the card to player side, instantiate original card and destroy preview card
         if (_cardIsOnPlayerSide)
         {
-            // Instantiate original card and set it to _instantiatedOriginalCard
-            _instantiatedOriginalCard = Instantiate(_card.GetOriginalCard(), _instantiatedPreviewCard.transform.position, Quaternion.identity);
+            if (_card.GetCardCost() <= UIManager.Instance.ElixirCount * 10)
+            {
+                UIManager.Instance.DecreaseElixir(_card.GetCardCost());
+
+                // Instantiate original card and set it to _instantiatedOriginalCard
+                _instantiatedOriginalCard = Instantiate(_card.GetOriginalCard(), _instantiatedPreviewCard.transform.position, Quaternion.identity);
+            }
 
             // Destroy preview card
             Destroy(_instantiatedPreviewCard);
-
             // The part of sending the used card to the end of the deck.
-
 
         }
     }

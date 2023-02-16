@@ -22,6 +22,7 @@ public class Character : MonoBehaviour
 
     private int _enemyTowerLayer = 3;
     private int _playerTowerLayer = 10;
+    private int _enemyLayer = 8;
 
     // This is to store the character's type
     public enum CharacterType { Melee, Ranged, AirUnit };
@@ -35,6 +36,10 @@ public class Character : MonoBehaviour
     public int PlayerTowerLayer
     {
         get => _playerTowerLayer;
+    }
+    public int EnemyLayer
+    {
+        get => _enemyLayer;
     }
 
     // Getter for _health, _maxHealth, _attackRange, _attackDamage and _detectRange property
@@ -85,6 +90,15 @@ public class Character : MonoBehaviour
     {
         if (Health <= 0f)
         {
+            Transform _parentTransform = transform.parent;
+            if (_parentTransform != null)
+            {
+                if ((_parentTransform.CompareTag("Knights") || _parentTransform.CompareTag("SkeletonWarriors")) && _parentTransform.childCount == 1)
+                {
+                    Destroy(_parentTransform.gameObject);
+                    return;
+                }
+            }
             Destroy(gameObject);
         }
     }

@@ -40,11 +40,11 @@ public class Tower : MonoBehaviour
             }
             if (CompareTag("EnemyMainTower"))
             {
-                UIManager._Instance.YouWin();
+                UIManager.Instance.YouWin();
             }
             else if (CompareTag("PlayerMainTower"))
             {
-                UIManager._Instance.YouLose();
+                UIManager.Instance.YouLose();
             }
             Destroy(gameObject);
         }

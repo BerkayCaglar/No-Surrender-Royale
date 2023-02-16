@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1544377454405447218}
   m_Layer: 8
   m_Name: SkeletonWarrior
-  m_TagString: Enemy
+  m_TagString: SkeletonWarrior
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -225,6 +225,7 @@ MonoBehaviour:
   _attackDamage: 25
   _attackSpeed: 1
   _detectRange: 3
+  characterType: 0
 --- !u!54 &6771357111726246045
 Rigidbody:
   m_ObjectHideFlags: 0

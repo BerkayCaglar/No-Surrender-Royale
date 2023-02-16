@@ -48,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 3133471774978864691, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 3133471774978897911, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 3133471774978864691, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Knight
       objectReference: {fileID: 0}
     - target: {fileID: 3133471774978897911, guid: 3c8052b9a1e957443a123c13e53055ef,
         type: 3}

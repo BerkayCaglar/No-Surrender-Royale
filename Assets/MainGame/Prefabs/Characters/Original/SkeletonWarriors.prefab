@@ -103,7 +103,7 @@ PrefabInstance:
     - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: SkeletonWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
@@ -193,7 +193,7 @@ PrefabInstance:
     - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: SkeletonWarrior
       objectReference: {fileID: 0}
     - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
