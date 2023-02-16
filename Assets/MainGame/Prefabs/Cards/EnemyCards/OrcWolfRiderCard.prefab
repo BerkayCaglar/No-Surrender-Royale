@@ -232,6 +232,7 @@ MonoBehaviour:
     type: 3}
   _previewCardPrefab: {fileID: 4994715457938973332, guid: bc22237f46604204aab9e3dd2ba8059b,
     type: 3}
+  _cardCost: 4
 --- !u!114 &5818483411595645973
 MonoBehaviour:
   m_ObjectHideFlags: 0

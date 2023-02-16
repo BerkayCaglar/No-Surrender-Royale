@@ -62,7 +62,7 @@ public class CharacterAI : MonoBehaviour
         // If the current target is not null, return. This is to prevent the character from finding a new target while attacking
         if (_currentTarget != null) return;
 
-        if (CompareTag("Enemy"))
+        if (gameObject.layer == _character.EnemyLayer)
         {
             _colliders = Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly", "PlayerTowers"));
         }
@@ -103,7 +103,7 @@ public class CharacterAI : MonoBehaviour
         GameObject _nearestTower = null;
         float _nearestDistance = float.MaxValue;
 
-        if (CompareTag("Enemy"))
+        if (gameObject.layer == _character.EnemyLayer)
         {
             foreach (GameObject tower in TowerManager.Instance.PlayerTowers)
             {

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
+    public static SpawnManager _Instance { get; private set; }
     [SerializeField] private List<GameObject> _spawnObjects = new List<GameObject>();
 
     public List<GameObject> SpawnObjects
@@ -13,6 +14,18 @@ public class SpawnManager : MonoBehaviour
     }
 
     [SerializeField] private float _spawnRate = 1f;
+
+    private void Awake()
+    {
+        if (_Instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            _Instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -31,5 +44,9 @@ public class SpawnManager : MonoBehaviour
 
             Instantiate(_spawnObjects[randomIndex], randomPosition, Quaternion.Euler(0f, -180f, 0f));
         }
+    }
+    public void IncereaseSpawnRate()
+    {
+        _spawnRate -= 0.1f;
     }
 }

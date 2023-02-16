@@ -22,6 +22,8 @@ TagManager:
   - HealthBar
   - SkeletonWarriors
   - Knights
+  - Knight
+  - SkeletonWarrior
   layers:
   - Default
   - TransparentFX
