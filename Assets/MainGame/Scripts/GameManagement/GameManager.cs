@@ -17,4 +17,8 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
+    private void Start()
+    {
+        Application.targetFrameRate = Screen.currentResolution.refreshRate;
+    }
 }

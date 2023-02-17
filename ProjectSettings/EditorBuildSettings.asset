@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/MainGame/Scenes/BattleScene.unity
+    guid: c850ee8c3b14cc8459e7e186857cf567
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 15fc3f3684a829e42a9520a44e11ccdf,
       type: 2}
@@ -12,3 +15,5 @@ EditorBuildSettings:
       guid: 1da86bb25ccbc0347856f407bee44821, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: ce539a39291cc284089a75664930d2e1, type: 2}
+    com.unity.addressableassets: {fileID: 11400000, guid: a21765568d36b004cb6783f81c9222ca,
+      type: 2}

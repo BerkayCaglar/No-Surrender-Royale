@@ -11,10 +11,12 @@ public class TowerManager : MonoBehaviour
     public List<GameObject> PlayerTowers
     {
         get => _playerTowers;
+        set => _playerTowers = value;
     }
     public List<GameObject> EnemyTowers
     {
         get => _enemyTowers;
+        set => _enemyTowers = value;
     }
     private void Awake()
     {
