@@ -6,6 +6,16 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public enum GameState
+    {
+        MainMenu,
+        Updating,
+        Game,
+        Pause,
+        GameOver
+    }
+    public GameState _gameState;
+
     private void Awake()
     {
         if (Instance != null)

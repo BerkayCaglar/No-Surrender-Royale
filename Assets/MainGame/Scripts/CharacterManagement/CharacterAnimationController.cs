@@ -24,4 +24,8 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _character.Animator.SetTrigger("Attack");
     }
+    public void Heal()
+    {
+        _character.Animator.SetTrigger("Heal");
+    }
 }
