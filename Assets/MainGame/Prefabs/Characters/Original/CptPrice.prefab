@@ -698,12 +698,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea1dad80381de41acf29c01d5ce0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterName: Cpt. Price
   _maxHealth: 50
   _attackRange: 6
   _attackDamage: 50
   _attackSpeed: 0.5
   _detectRange: 7
+  _buffSize: 0
   characterType: 1
+  attackType: 0
+  targetType: 2
+  characterSpeedType: 0
 --- !u!54 &1977545797604684566
 Rigidbody:
   m_ObjectHideFlags: 0

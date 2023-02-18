@@ -496,6 +496,7 @@ GameObject:
   - component: {fileID: 5961394142735455983}
   - component: {fileID: 6946182182478230509}
   - component: {fileID: 6842232372726516468}
+  - component: {fileID: 2897590809206007874}
   m_Layer: 9
   m_Name: Eagle
   m_TagString: Untagged
@@ -628,12 +629,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea1dad80381de41acf29c01d5ce0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterName: Eagle
   _maxHealth: 100
   _attackRange: 5
   _attackDamage: 80
   _attackSpeed: 1.5
   _detectRange: 6
+  _buffSize: 0
+  _buffSpeed: 0
+  _buffAmount: 0
   characterType: 2
+  attackType: 0
+  targetType: 2
+  characterSpeedType: 1
 --- !u!114 &6946182182478230509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,6 +667,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthBar: {fileID: 9091401239456949224}
+--- !u!114 &2897590809206007874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217732560447607708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0105792b0ec415d4b94f657dc20d34f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1217761236474562756
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,7 +1378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.00000011920929}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &9033759477258578716

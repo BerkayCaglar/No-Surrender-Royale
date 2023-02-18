@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController)), RequireComponent(typeof(CharacterUIManager))]
+[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController)), RequireComponent(typeof(CharacterUIManager)), RequireComponent(typeof(CharacterHealthManager)), RequireComponent(typeof(Rigidbody))]
 public class Character : MonoBehaviour
 {
     // This is to store the character AI, character animation controller and navmesh agent component
@@ -11,6 +11,9 @@ public class Character : MonoBehaviour
     private CharacterAnimationController _characterAnimationController;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
+
+    // This is to store the character's name
+    [SerializeField] private string _characterName;
 
     // This is to store the character's health, max health, attack range, attack damage, attack speed and detect range
     private float _health;
@@ -20,15 +23,40 @@ public class Character : MonoBehaviour
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _detectRange;
 
+    #region For Support Character
+    [SerializeField] private float _buffSize;
+    [SerializeField] private float _buffSpeed;
+    [SerializeField] private float _buffAmount;
+
+    #endregion
+
     private int _enemyTowerLayer = 3;
     private int _playerTowerLayer = 10;
     private int _enemyLayer = 8;
 
     // This is to store the character's type
-    public enum CharacterType { Melee, Ranged, AirUnit };
+    public enum CharacterType { Melee, Ranged, AirUnit, Support };
     public CharacterType characterType;
 
-    // Getter for _enemyTowerLayer and _playerTowerLayer property
+    // This is to store the character's attack type
+    public enum AttackType { Single, Multiple, None };
+    public AttackType attackType;
+
+    // This is to store the character's target type
+    public enum TargetType { Air, Ground, Both, None };
+    public TargetType targetType;
+
+    // This is to store the character's speed type
+    public enum CharacterSpeedType { Slow, Medium, Fast };
+    public CharacterSpeedType characterSpeedType;
+
+    // Getter for _characterName property
+    public string CharacterName
+    {
+        get => _characterName;
+    }
+
+    // Getter for _enemyTowerLayer, _playerTowerLayer and _enemyLayer property
     public int EnemyTowerLayer
     {
         get => _enemyTowerLayer;
@@ -42,7 +70,7 @@ public class Character : MonoBehaviour
         get => _enemyLayer;
     }
 
-    // Getter for _health, _maxHealth, _attackRange, _attackDamage and _detectRange property
+    // Getter for _health, _maxHealth, _attackRange, _attackDamage, _attackSpeed, _detectRange, _buffSize, _buffSpeed and _buffAmount property
     public float Health
     {
         get => _health;
@@ -68,7 +96,24 @@ public class Character : MonoBehaviour
     {
         get => _attackSpeed;
     }
-    // Getter for _characterAI, _characterAnimationController and _navMeshAgent property
+
+    #region Getters for Support Character
+    public float BuffSize
+    {
+        get => _buffSize;
+    }
+    public float BuffSpeed
+    {
+        get => _buffSpeed;
+    }
+    public float BuffAmount
+    {
+        get => _buffAmount;
+    }
+
+    #endregion
+
+    // Getter for _characterAI, _characterAnimationController, _navMeshAgent and _animator property
     public CharacterAI CharacterAI
     {
         get => _characterAI;
@@ -85,23 +130,6 @@ public class Character : MonoBehaviour
     {
         get => _animator;
     }
-
-    private void Update()
-    {
-        if (Health <= 0f)
-        {
-            Transform _parentTransform = transform.parent;
-            if (_parentTransform != null)
-            {
-                if ((_parentTransform.CompareTag("Knights") || _parentTransform.CompareTag("SkeletonWarriors")) && _parentTransform.childCount == 1)
-                {
-                    Destroy(_parentTransform.gameObject);
-                    return;
-                }
-            }
-            Destroy(gameObject);
-        }
-    }
     private void Start()
     {
         // Get character AI, character animation controller and navmesh agent component
@@ -112,5 +140,19 @@ public class Character : MonoBehaviour
 
         // Set the character's health to max health
         Health = _maxHealth;
+
+        // Set the character's speed based on the character's speed type
+        switch (characterSpeedType)
+        {
+            case CharacterSpeedType.Slow:
+                _navMeshAgent.speed = 2f;
+                break;
+            case CharacterSpeedType.Medium:
+                _navMeshAgent.speed = 3f;
+                break;
+            case CharacterSpeedType.Fast:
+                _navMeshAgent.speed = 4f;
+                break;
+        }
     }
 }
