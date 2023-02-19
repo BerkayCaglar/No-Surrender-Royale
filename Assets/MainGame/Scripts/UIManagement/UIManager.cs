@@ -20,8 +20,9 @@ public class UIManager : MonoBehaviour
 
     #region Download Content
 
-    [SerializeField] private GameObject _downloadMenu, _downloadingMenu, _downloadedMenu, _loadingMenu;
-    [SerializeField] private TMP_Text _downloadAmountText, _downloadedAmountText;
+    [SerializeField] private GameObject _downloadMenu, _downloadingMenu, _downloadedMenu, _loadingMenu, _checkingForUpdatesMenu;
+    [SerializeField] private GameObject _downloadButton;
+    [SerializeField] private TMP_Text _downloadAmountText, _downloadedAmountText, _threeDotsText;
     [SerializeField] private Slider _downloadingSlider;
     [SerializeField] private AddressableSystemController _addressableSystemController;
 
@@ -265,6 +266,15 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Close check for updates menu and active download menu. Only in download menu.
+    /// </summary>
+    public void ShowDownloadMenu()
+    {
+        _checkingForUpdatesMenu.SetActive(false);
+        _downloadMenu.SetActive(true);
+    }
+
+    /// <summary>
     /// If proccess is downloading, show the downloading menu. Only in download menu. Downloading menu is the menu that shows the download progress. Slider and text.
     /// </summary>
     public void ShowDownloadingMenu()
@@ -284,6 +294,14 @@ public class UIManager : MonoBehaviour
     }
 
     /// <summary>
+    /// If update check proccess is finished, show the download button. Only in download menu. Download button is the button that starts the download process.
+    /// </summary>
+    public void ShowDownloadButton()
+    {
+        _downloadButton.SetActive(true);
+    }
+
+    /// <summary>
     /// This method will set the download amount text. Only in download menu. Amount text is the text that shows the download amount. For example: 0.5 MB
     /// </summary>
     /// <param name="text"> The text that will be set to the download amount text. </param>
@@ -292,6 +310,16 @@ public class UIManager : MonoBehaviour
         // Set the text to the download amount text
         _downloadAmountText.text = text;
     }
+
+    /// <summary>
+    /// This method will set the three dots text. Only in download menu. Three dots text is the text that shows the three dots animation. For example: -> . -> .. -> ...
+    /// </summary>
+    /// <param name="text"></param>
+    public void SetThreeDotsText(string text)
+    {
+        _threeDotsText.text = text;
+    }
+
     /// <summary>
     /// This method will set the download amount to the slider and text. Only in download menu. Slider and text are the slider and text that shows the download progress. For example: 50%
     /// </summary>

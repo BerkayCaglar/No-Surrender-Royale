@@ -13,7 +13,7 @@ public class SpawnManager : MonoBehaviour
         get => _spawnObjects;
     }
 
-    [SerializeField] private float _spawnRate = 1f;
+    [SerializeField] private float _spawnRate = 1f, _waitTimeToSpawn = 3f;
 
     private void Awake()
     {
@@ -41,6 +41,9 @@ public class SpawnManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator SpawnObject()
     {
+        // Wait for the wait time to spawn
+        yield return new WaitForSeconds(_waitTimeToSpawn);
+
         // This loop will run forever
         while (true)
         {

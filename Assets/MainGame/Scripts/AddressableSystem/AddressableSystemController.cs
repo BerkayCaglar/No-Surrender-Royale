@@ -20,10 +20,28 @@ public class AddressableSystemController : MonoBehaviour
         // Set the game state to Updating
         GameManager.Instance._gameState = GameManager.GameState.Updating;
 
+        // Check for updates
+        StartCoroutine(CheckForUpdates());
+
         // Initialize download size and download the asset
         StartCoroutine(DownloadContentInformationGetterAndSetter());
     }
 
+    public IEnumerator CheckForUpdates()
+    {
+        // Set the text animation
+        UIManager.Instance.SetThreeDotsText(".");
+
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.SetThreeDotsText("..");
+
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.SetThreeDotsText("...");
+
+        yield return new WaitForSeconds(1f);
+
+        UIManager.Instance.ShowDownloadMenu();
+    }
     /// <summary>
     /// Get the download size of the asset
     /// </summary>
@@ -47,6 +65,9 @@ public class AddressableSystemController : MonoBehaviour
 
             // Set the download size text
             UIManager.Instance.SetDownloadAmountText(((double)downloadSize / (1024 * 1024)).ToString("F1") + " MB");
+
+            // Show the download button
+            UIManager.Instance.ShowDownloadButton();
 
             // Check if the download size is 0
             if (downloadSize <= 0)
