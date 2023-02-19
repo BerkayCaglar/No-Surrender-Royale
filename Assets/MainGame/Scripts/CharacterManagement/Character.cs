@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController)), RequireComponent(typeof(CharacterUIManager)), RequireComponent(typeof(CharacterHealthManager)), RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CharacterAI)), RequireComponent(typeof(CharacterAnimationController)), RequireComponent(typeof(NavMeshAgent)), RequireComponent(typeof(Animator)), RequireComponent(typeof(CharacterCollisionController)), RequireComponent(typeof(CharacterUIManager)), RequireComponent(typeof(CharacterHealthManager)), RequireComponent(typeof(Rigidbody)), RequireComponent(typeof(CharacterParticleSystemController))]
 public class Character : MonoBehaviour
 {
-    // This is to store the character AI, character animation controller and navmesh agent component
+    // This is to store the character AI, character animation controller, nav mesh agent, animator, character collision controller, character UI manager, character health manager, rigidbody and character particle system controller
     private CharacterAI _characterAI;
     private CharacterAnimationController _characterAnimationController;
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
+    private CharacterCollisionController _characterCollisionController;
+    private CharacterUIManager _characterUIManager;
+    private CharacterHealthManager _characterHealthManager;
+    private Rigidbody _rigidbody;
+    private CharacterParticleSystemController _characterParticleSystemController;
 
     // This is to store the character's name
     [SerializeField] private string _characterName;
@@ -30,9 +35,15 @@ public class Character : MonoBehaviour
 
     #endregion
 
+
+    #region Layers
+
     private int _enemyTowerLayer = 3;
     private int _playerTowerLayer = 10;
     private int _enemyLayer = 8;
+    private int _playerLayer = 9;
+
+    #endregion
 
     // This is to store the character's type
     public enum CharacterType { Melee, Ranged, AirUnit, Support };
@@ -56,7 +67,7 @@ public class Character : MonoBehaviour
         get => _characterName;
     }
 
-    // Getter for _enemyTowerLayer, _playerTowerLayer and _enemyLayer property
+    // Getter for _enemyTowerLayer, _playerTowerLayer, _enemyLayer and _playerLayer property
     public int EnemyTowerLayer
     {
         get => _enemyTowerLayer;
@@ -68,6 +79,10 @@ public class Character : MonoBehaviour
     public int EnemyLayer
     {
         get => _enemyLayer;
+    }
+    public int PlayerLayer
+    {
+        get => _playerLayer;
     }
 
     // Getter for _health, _maxHealth, _attackRange, _attackDamage, _attackSpeed, _detectRange, _buffSize, _buffSpeed and _buffAmount property
@@ -113,7 +128,7 @@ public class Character : MonoBehaviour
 
     #endregion
 
-    // Getter for _characterAI, _characterAnimationController, _navMeshAgent and _animator property
+    // Getter for _characterAI, _characterAnimationController, _navMeshAgent, _animator, _characterCollisionController, _characterUIManager, _characterHealthManager, _rigidbody and _characterParticleSystemController property
     public CharacterAI CharacterAI
     {
         get => _characterAI;
@@ -130,13 +145,40 @@ public class Character : MonoBehaviour
     {
         get => _animator;
     }
+    public CharacterCollisionController CharacterCollisionController
+    {
+        get => _characterCollisionController;
+    }
+    public CharacterUIManager CharacterUIManager
+    {
+        get => _characterUIManager;
+    }
+    public CharacterHealthManager CharacterHealthManager
+    {
+        get => _characterHealthManager;
+    }
+    public Rigidbody Rigidbody
+    {
+        get => _rigidbody;
+    }
+    public CharacterParticleSystemController CharacterParticleSystemController
+    {
+        get => _characterParticleSystemController;
+    }
+
+    // Start is called before the first frame update
     private void Start()
     {
-        // Get character AI, character animation controller and navmesh agent component
+        // Get character AI, character animation controller, nav mesh agent, animator, character collision controller, character UI manager, character health manager, rigidbody and character particle system controller
         _characterAI = GetComponent<CharacterAI>();
         _characterAnimationController = GetComponent<CharacterAnimationController>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
+        _characterCollisionController = GetComponent<CharacterCollisionController>();
+        _characterUIManager = GetComponent<CharacterUIManager>();
+        _characterHealthManager = GetComponent<CharacterHealthManager>();
+        _rigidbody = GetComponent<Rigidbody>();
+        _characterParticleSystemController = GetComponent<CharacterParticleSystemController>();
 
         // Set the character's health to max health
         Health = _maxHealth;

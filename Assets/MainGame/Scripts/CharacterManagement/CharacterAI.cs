@@ -7,7 +7,7 @@ public class CharacterAI : MonoBehaviour
 {
     private Character _character;
     private GameObject _currentTarget, _mainTarget;
-    private bool _isAttacking, _isHealing;
+    private bool _isAttacking, _isHealing, _isHealingCooldown;
     private float elapsed = 0.0f;
     private bool _targetInRange;
     private List<Collider> _colliders = new List<Collider>();
@@ -48,16 +48,27 @@ public class CharacterAI : MonoBehaviour
             OtherAttack();
             OtherMove();
         }
-
     }
 
     #region Support Character
 
     private void FindNearlyFriendTarget()
     {
-        if (_colliders.Count == 0 || _currentTarget != null) return;
+        _colliders.Clear();
 
-        _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly")));
+        // Check this character is friendly or enemy. If friendly, find friendly targets in range. If enemy, find enemy targets in range.
+        if (gameObject.layer == _character.PlayerLayer)
+        {
+            _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly")));
+        }
+        else if (gameObject.layer == _character.EnemyLayer)
+        {
+            _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy")));
+        }
+
+        _colliders.RemoveAll(collider => collider.gameObject == gameObject);
+
+        if (_colliders.Count == 0) return;
 
         foreach (Collider collider in _colliders)
         {
@@ -69,33 +80,21 @@ public class CharacterAI : MonoBehaviour
                 _nearestTarget = collider.gameObject;
             }
         }
-        Debug.Log(_nearestTarget.name);
         _currentTarget = _nearestTarget;
     }
     private void SupportMove()
     {
-        if (_currentTarget != null && !_isHealing)
+        if (_currentTarget != null)
         {
             _character.NavMeshAgent.SetDestination(_currentTarget.transform.position);
         }
     }
     private void FindFriendlyTargetsAndHealThem()
     {
-        // If the character is already healing, return
-        if (_isHealing) return;
-
-        _colliders.Clear();
-
-        // Find all friendly targets in range
-        _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly")));
-
-        // Remove the this character from the list
-        _colliders.RemoveAll(collider => collider.gameObject == gameObject);
-
-        // If there are no targets in range, return
+        // If there are no targets in range or the character is already healing, return
         if (_colliders.Count == 0) return;
 
-        if (!_isHealing)
+        if (!_isHealing && !_isHealingCooldown)
         {
             StartCoroutine(Heal());
         }
@@ -107,7 +106,23 @@ public class CharacterAI : MonoBehaviour
 
         _character.NavMeshAgent.ResetPath();
 
+        _character.CharacterAnimationController.HealPrepare();
+
         yield return new WaitForSeconds(_character.BuffSpeed);
+
+        _character.CharacterAnimationController.Heal();
+
+        _colliders.Clear();
+
+        // Check this character is friendly or enemy. If friendly, find friendly targets in range. If enemy, find enemy targets in range.
+        if (gameObject.layer == _character.PlayerLayer)
+        {
+            _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Friendly")));
+        }
+        else if (gameObject.layer == _character.EnemyLayer)
+        {
+            _colliders.AddRange(Physics.OverlapSphere(transform.position, _character.DetectRange, LayerMask.GetMask("Enemy")));
+        }
 
         foreach (Collider collider in _colliders)
         {
@@ -116,10 +131,18 @@ public class CharacterAI : MonoBehaviour
             if (otherCharacter != null)
             {
                 otherCharacter.Health += _character.BuffAmount;
+                otherCharacter.CharacterParticleSystemController.PlayHealParticleSystem();
             }
         }
-        _character.CharacterAnimationController.Heal();
         _isHealing = false;
+        StartCoroutine(HealCooldown());
+    }
+
+    private IEnumerator HealCooldown()
+    {
+        _isHealingCooldown = true;
+        yield return new WaitForSeconds(4);
+        _isHealingCooldown = false;
     }
 
     #endregion

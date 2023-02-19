@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class CharacterEditor : Editor
+public class CharacterEditor : MonoBehaviour
 {
     /*
     #region Serialized Properties

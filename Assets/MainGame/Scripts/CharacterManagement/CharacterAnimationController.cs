@@ -24,8 +24,16 @@ public class CharacterAnimationController : MonoBehaviour
     {
         _character.Animator.SetTrigger("Attack");
     }
+
+    #region Support Character
     public void Heal()
     {
         _character.Animator.SetTrigger("Heal");
     }
+
+    public void HealPrepare()
+    {
+        _character.Animator.SetTrigger("HealPrepare");
+    }
+    #endregion
 }
