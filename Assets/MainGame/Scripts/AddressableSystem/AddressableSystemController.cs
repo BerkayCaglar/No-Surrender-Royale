@@ -163,6 +163,10 @@ public class AddressableSystemController : MonoBehaviour
                 // Replace the shader of the material
                 material.shader = Shader.Find("Standard");
             }
+            else if (material.shader.name == "Mobile/Particles/Alpha Blended")
+            {
+                material.shader = Shader.Find("Mobile/Particles/Alpha Blended");
+            }
         }
     }
 }

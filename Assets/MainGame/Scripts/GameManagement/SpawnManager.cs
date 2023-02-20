@@ -8,6 +8,8 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager _Instance { get; private set; }
     [SerializeField] private List<GameObject> _spawnObjects = new List<GameObject>();
 
+    public bool RunSpawnerAtStart; // Editor variable to run the spawn coroutine at start.
+
     public List<GameObject> SpawnObjects
     {
         get => _spawnObjects;
@@ -26,6 +28,14 @@ public class SpawnManager : MonoBehaviour
             _Instance = this;
         }
     }
+    private void Start()
+    {
+        if (RunSpawnerAtStart)
+        {
+            StartCoroutine(SpawnObject());
+        }
+    }
+
     /// <summary>
     /// This method is called from UIManager.cs to start the spawn coroutine. It is called after the download is complete.
     /// </summary>

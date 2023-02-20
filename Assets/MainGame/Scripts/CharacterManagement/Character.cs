@@ -38,8 +38,8 @@ public class Character : MonoBehaviour
 
     #region Layers
 
-    private int _enemyTowerLayer = 3;
-    private int _playerTowerLayer = 10;
+    private int _enemyTowerLayer = 10;
+    private int _playerTowerLayer = 3;
     private int _enemyLayer = 8;
     private int _playerLayer = 9;
 
