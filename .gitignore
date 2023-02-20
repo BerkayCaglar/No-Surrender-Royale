@@ -8,6 +8,9 @@
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
+/[Aa]ssets/[Ee]ditor/
+/[Aa]ssets/[Pp]hoton/
+/[Aa]ssets/[Gg]izmos/
 /[Uu]ser[Ss]ettings/
 /[Aa]ssets/[Aa]ssets/
 /[Aa]ssets/[Bb]attleMapAssets/
@@ -73,3 +76,5 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/Gizmos.meta
+Assets/Photon.meta
