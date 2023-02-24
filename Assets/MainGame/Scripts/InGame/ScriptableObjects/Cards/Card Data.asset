@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79efc4a4a3428b941be050da62b42e7f, type: 3}
+  m_Name: Card Data
+  m_EditorClassIdentifier: 
+  cardStats:
+  - Card:
+      CharacterName: Knight
+      MaxHealth: 100
+      AttackRange: 2
+      AttackDamage: 25
+      AttackSpeed: 0.8
+      DetectRange: 3
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 0
+      attackType: 0
+      targetType: 1
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 2870881163140531290, guid: ca43a547787d36f4584bc5d611245959,
+        type: 3}
+      PreviewCardPrefab: {fileID: 2870881163140531290, guid: 335d26f73e609084e918e12958403ead,
+        type: 3}
+      CardCost: 2
+  - Card:
+      CharacterName: CptPrice
+      MaxHealth: 150
+      AttackRange: 6
+      AttackDamage: 40
+      AttackSpeed: 0.5
+      DetectRange: 7
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 1
+      attackType: 0
+      targetType: 2
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 6605030410877668278, guid: 5522790c4bcf7a847996a023c05afadf,
+        type: 3}
+      PreviewCardPrefab: {fileID: 6605030410877668278, guid: 767780300dfa5244d83d981adb1f0f77,
+        type: 3}
+      CardCost: 6
+  - Card:
+      CharacterName: Eagle
+      MaxHealth: 100
+      AttackRange: 4
+      AttackDamage: 50
+      AttackSpeed: 2
+      DetectRange: 5
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 2
+      attackType: 0
+      targetType: 2
+      movementType: 1
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 1217732560447607708, guid: c7468a81423a7324dbdfc10e2375be36,
+        type: 3}
+      PreviewCardPrefab: {fileID: 1217732560447607708, guid: 3e84f6b4d68be524e9504db5c8d3deb5,
+        type: 3}
+      CardCost: 4
+  - Card:
+      CharacterName: EnemyWizard
+      MaxHealth: 75
+      AttackRange: 0
+      AttackDamage: 0
+      AttackSpeed: 0
+      DetectRange: 8
+      BuffSize: 0.2
+      BuffSpeed: 2
+      BuffAmount: 50
+      characterType: 3
+      attackType: 2
+      targetType: 3
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 1248815240492774, guid: ccd8c3b89aa02e943a08ab9238a8a70c,
+        type: 3}
+      PreviewCardPrefab: {fileID: 1248815240492774, guid: 3f0522535ce16d94fb4a4db830e3614b,
+        type: 3}
+      CardCost: 5
+  - Card:
+      CharacterName: FriendlyWizard
+      MaxHealth: 75
+      AttackRange: 0
+      AttackDamage: 0
+      AttackSpeed: 0
+      DetectRange: 8
+      BuffSize: 0.2
+      BuffSpeed: 2
+      BuffAmount: 50
+      characterType: 3
+      attackType: 2
+      targetType: 3
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 1953271650171834, guid: dbf7a0c9d76b77a40af3104feac0641d,
+        type: 3}
+      PreviewCardPrefab: {fileID: 1953271650171834, guid: 4e646829d81fc0743a45e22970e51621,
+        type: 3}
+      CardCost: 5
+  - Card:
+      CharacterName: SkeletonArcher
+      MaxHealth: 150
+      AttackRange: 6
+      AttackDamage: 50
+      AttackSpeed: 1
+      DetectRange: 7
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 1
+      attackType: 0
+      targetType: 2
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 1341123532628274981, guid: f0a166ee2b02c224aaf07d525e54920e,
+        type: 3}
+      PreviewCardPrefab: {fileID: 1341123532628274981, guid: 040c06023009d6e4080914b5f08ca9b0,
+        type: 3}
+      CardCost: 6
+  - Card:
+      CharacterName: SkeletonWarrior
+      MaxHealth: 100
+      AttackRange: 2
+      AttackDamage: 25
+      AttackSpeed: 0.8
+      DetectRange: 3
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 0
+      attackType: 0
+      targetType: 1
+      movementType: 0
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 4711878465470244922, guid: cb8dd21cbeb6a664eadabd8e1199ca08,
+        type: 3}
+      PreviewCardPrefab: {fileID: 4711878465470244922, guid: c194f97baba19d644bad1a86c8b7b790,
+        type: 3}
+      CardCost: 2
+  - Card:
+      CharacterName: WolfRunner
+      MaxHealth: 175
+      AttackRange: 3
+      AttackDamage: 30
+      AttackSpeed: 0.8
+      DetectRange: 4
+      BuffSize: 0
+      BuffSpeed: 0
+      BuffAmount: 0
+      characterType: 0
+      attackType: 0
+      targetType: 1
+      movementType: 2
+    DraggableCardDatas:
+      OriginalCardPrefab: {fileID: 4994715457938973332, guid: 537b4c532a67074468f51b34e5b50113,
+        type: 3}
+      PreviewCardPrefab: {fileID: 4994715457938973332, guid: bc22237f46604204aab9e3dd2ba8059b,
+        type: 3}
+      CardCost: 4
