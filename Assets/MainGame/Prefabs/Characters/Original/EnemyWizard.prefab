@@ -664,6 +664,7 @@ GameObject:
   - component: {fileID: 4449533392551042460}
   - component: {fileID: 5721254574311190798}
   - component: {fileID: 8119281818076265199}
+  - component: {fileID: 7326707611203206620}
   m_Layer: 8
   m_Name: EnemyWizard
   m_TagString: EnemyWizard
@@ -837,19 +838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea1dad80381de41acf29c01d5ce0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterName: Friendly Wizard
-  _maxHealth: 100
-  _attackRange: 0
-  _attackDamage: 0
-  _attackSpeed: 0
-  _detectRange: 5
-  _buffSize: 1.5
-  _buffSpeed: 4
-  _buffAmount: 40
-  characterType: 3
-  attackType: 2
-  targetType: 3
-  characterSpeedType: 0
+  _cardData: {fileID: 11400000, guid: 39d59058afb9d484cbd0c62daee26f27, type: 2}
+  _cardIndex: 3
 --- !u!114 &8119281818076265199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +852,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0d3eece23c71c4f9e16dfce239e9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7326707611203206620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248815240492774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: ec9e1442-43fe-4b6a-b79a-8b057157c091
+  _prefabId: 4
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 1
+  _entityReplicationFilterQueryOption: 1
 --- !u!1 &1251583507443948
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,12 +28,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6695100057395397628}
-  - {fileID: 4711878464885429329}
+  - {fileID: 6987732233234711043}
+  - {fileID: 6589402867666974758}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4711878465603813125
+--- !u!1001 &5113961100909102303
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
@@ -68,17 +68,17 @@ PrefabInstance:
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
@@ -100,11 +100,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RightSkeletonWarrior
       objectReference: {fileID: 0}
-    - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
-        type: 3}
-      propertyPath: m_TagString
-      value: SkeletonWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -117,13 +112,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9285a0fdfe2e7f479f3ec16695ea3b1, type: 3}
---- !u!4 &6695100057395397628 stripped
+--- !u!4 &6589402867666974758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
     type: 3}
-  m_PrefabInstance: {fileID: 4711878465603813125}
+  m_PrefabInstance: {fileID: 5113961100909102303}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &6695100056773568680
+--- !u!1001 &9039668974704410362
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -133,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
@@ -158,17 +153,17 @@ PrefabInstance:
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
@@ -190,11 +185,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LeftSkeletonWarrior
       objectReference: {fileID: 0}
-    - target: {fileID: 2128569266069574369, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
-        type: 3}
-      propertyPath: m_TagString
-      value: SkeletonWarrior
-      objectReference: {fileID: 0}
     - target: {fileID: 9046413453718131029, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -207,9 +197,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9285a0fdfe2e7f479f3ec16695ea3b1, type: 3}
---- !u!4 &4711878464885429329 stripped
+--- !u!4 &6987732233234711043 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2128569266069355769, guid: e9285a0fdfe2e7f479f3ec16695ea3b1,
     type: 3}
-  m_PrefabInstance: {fileID: 6695100056773568680}
+  m_PrefabInstance: {fileID: 9039668974704410362}
   m_PrefabAsset: {fileID: 0}

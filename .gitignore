@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Aa]ssets/[Ee]ditor/
+/[Aa]ssets/[Ss]amples/
 /[Aa]ssets/[Pp]hoton/
 /[Aa]ssets/[Gg]izmos/
 /[Uu]ser[Ss]ettings/
@@ -16,6 +17,7 @@
 /[Aa]ssets/[Bb]attleMapAssets/
 /[Aa]ssets/[Aa]daptive[Pp]erformance/
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/
+/[Cc]CDBuildData/
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/
@@ -78,3 +80,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Gizmos.meta
 Assets/Photon.meta
+Assets/_TerrainAutoUpgrade.meta
+Assets/samples.meta

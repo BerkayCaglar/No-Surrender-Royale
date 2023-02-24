@@ -118,6 +118,9 @@ GameObject:
   - component: {fileID: 5346631032058622938}
   - component: {fileID: 1544377454405447218}
   - component: {fileID: 8050644152313267315}
+  - component: {fileID: 4416907190953507925}
+  - component: {fileID: 2921316691175795404}
+  - component: {fileID: -7381440487675081886}
   m_Layer: 8
   m_Name: SkeletonWarrior
   m_TagString: SkeletonWarrior
@@ -222,19 +225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62ea1dad80381de41acf29c01d5ce0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterName: Skeleton Warrior
-  _maxHealth: 75
-  _attackRange: 2
-  _attackDamage: 25
-  _attackSpeed: 1
-  _detectRange: 3
-  _buffSize: 0
-  _buffSpeed: 0
-  _buffAmount: 0
-  characterType: 0
-  attackType: 0
-  targetType: 1
-  characterSpeedType: 0
+  _cardData: {fileID: 11400000, guid: 39d59058afb9d484cbd0c62daee26f27, type: 2}
+  _cardIndex: 6
 --- !u!54 &6771357111726246045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -299,6 +291,59 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0105792b0ec415d4b94f657dc20d34f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4416907190953507925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128569266069574369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb0d3eece23c71c4f9e16dfce239e9cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2921316691175795404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128569266069574369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 155943207, guid: 5b00bf8b25851d440940a40ec23344f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneGuid: 
+  _serializerGuid: 5449a193-6e17-4c26-a8ea-65277288c08b
+  _prefabId: 8
+  _updateRate: 1
+  _autoFreezeProxyFrames: 0
+  _clientPredicted: 1
+  _allowInstantiateOnClient: 1
+  _persistThroughSceneLoads: 0
+  _sceneObjectDestroyOnDetach: 1
+  _sceneObjectAutoAttach: 1
+  _alwaysProxy: 0
+  _detachOnDisable: 1
+  _allowFirstReplicationWhenFrozen: 0
+  _autoRemoveChildEntities: 0
+  _entityBehaviourQueryOption: 0
+  _entityPriorityCalculatorQueryOption: 1
+  _entityReplicationFilterQueryOption: 1
+--- !u!114 &-7381440487675081886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128569266069574369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5b9166cf4a7e2141b6e3c1211d89040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2128569266069574895
